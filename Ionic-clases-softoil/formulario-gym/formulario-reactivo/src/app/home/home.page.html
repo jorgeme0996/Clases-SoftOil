@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Formulario Reactivo
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <form #formulario="ngForm" (ngSubmit)="onSubmit()">
+      <ion-list>
+        <ion-item>
+          <ion-label>Nombre</ion-label>
+          <ion-input type="text" placeholder="Agrega tu nombre" name="nombre" [(ngModel)]="user.nombre" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Apellido</ion-label>
+          <ion-input type="text" placeholder="Agrega tu apellido" name="apellido" [(ngModel)]="user.apellido" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Celular</ion-label>
+          <ion-input type="number" placeholder="Agrega tu celular" name="celular" [(ngModel)]="user.celular"></ion-input>
+        </ion-item>
+      </ion-list>
+      <ion-button type="submit" [disabled]="formulario.invalid">
+        Envia formulario
+      </ion-button>
+    </form>
+
+    <h1>Nombre: {{user.nombre}} {{user.apellido}}</h1>
+    <h1>Celular: {{user.celular}}</h1>
+</ion-content>
